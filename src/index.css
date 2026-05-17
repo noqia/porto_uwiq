@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import './styles/global.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent-purple/30 text-slate-900 dark:text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 dark:bg-black/20 dark:border-white/10;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-purple via-accent-blue to-accent-cyan bg-clip-text text-transparent;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent-purple;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Animation Delays for Blob */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Custom Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Smooth image loading */
+img {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+img[data-src] {
+  opacity: 0;
+}
+
+/* TipTap Editor Styles */
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #94a3b8;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #8b5cf6;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #64748b;
+}
+
+.ProseMirror pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.ProseMirror code {
+  background: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.ProseMirror th,
+.ProseMirror td {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.ProseMirror th {
+  background: #f8fafc;
+  font-weight: 600;
+}
+
+.dark .ProseMirror th {
+  background: #1e293b;
+}
+
+.dark .ProseMirror td,
+.dark .ProseMirror th {
+  border-color: #334155;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5rem;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+.dark .ProseMirror hr {
+  border-color: #334155;
+}
+
+/* Hapus border ungu default ProseMirror */
+.ProseMirror {
+  overscroll-behavior: contain;
+}
+
+.ProseMirror:focus {
+  outline: none !important;
+}
+
+/* Hapus ring/border saat node terpilih */
+.ProseMirror .ProseMirror-selectednode {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Hapus border ungu dropcursor */
+.ProseMirror-dropcursor {
+  background: #94a3b8 !important;
+  width: 1px !important;
+}
+
+/* Scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #475569;
+}
+
+/* Bubble menu scrollable */
+.tippy-box[data-theme~="bubble-menu"] {
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.tippy-box[data-theme~="bubble-menu"]::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tippy-box[data-theme~="bubble-menu"]::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+/* Pastikan slash command tidak overflow */
+.slash-command-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.tippy-box,
+.slash-command-list {
+  overscroll-behavior: contain;
+}
+
+.tippy-box * {
+  overscroll-behavior: contain;
+}
+
+/* Remove ALL focus ring from editor */
+.ProseMirror,
+.ProseMirror:focus,
+.ProseMirror:focus-visible,
+.ProseMirror-focused,
+.tiptap.ProseMirror {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove wrapper focus styles */
+.ProseMirror *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Bubble menu scroll fix */
+.tippy-box {
+  overscroll-behavior: contain;
+}
+
+.tippy-content {
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Important: allow wheel scrolling */
+.tippy-box *,
+.tippy-content * {
+  pointer-events: auto;
+}
+
+/* Prevent page scroll when hovering bubble */
+.tippy-box {
+  touch-action: auto;
+}
+
+/* --- TIPTAP EDITOR SPACING FIX --- */
+.ProseMirror > * + * {
+  margin-top: 1.25em;
+}
+
+.ProseMirror p {
+  margin-bottom: 1em;
+}
+
+/* Memastikan spasi kosong saat di-enter tidak menghilang */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #adb5bd;
+  pointer-events: none;
+  height: 0;
+}
