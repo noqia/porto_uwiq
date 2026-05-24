@@ -123,7 +123,7 @@ export const Work = () => {
                         to={`/work/${work.id}`}
                         className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold hover:scale-105 transition-transform group"
                       >
-                        View Case Study 
+                        View Detail 
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
