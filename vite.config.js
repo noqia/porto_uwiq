@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   
   server: {
-    allowedHosts: ['istawa.sipjadi.my.id']
+    allowedHosts: ['faqihatthoriq.my.id']
   },
 
   build: {
