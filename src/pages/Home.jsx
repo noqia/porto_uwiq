@@ -199,7 +199,7 @@ export const Home = () => {
                       to={`/work/${featuredWork.id}`}
                       className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold hover:scale-105 transition-transform"
                     >
-                      View Case Study <ArrowRight size={18} />
+                      View Detail <ArrowRight size={18} />
                     </Link>
                   </div>
                   <div className="relative">
