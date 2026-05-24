@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Save, Image as ImageIcon, ArrowLeft, Loader2 } from 'lucide-react'
-import TipTapEditor from '../../components/shared/TipTapEditor'
+import TipTapEditor from '../../components/shared/TinyMCEEditor'
 import { supabase } from '../../services/supabaseClient'
 import toast from 'react-hot-toast'
 

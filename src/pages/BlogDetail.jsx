@@ -121,7 +121,7 @@ export const BlogDetail = () => {
           )}
 
           <div 
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-accent-purple hover:prose-a:text-accent-blue prose-img:rounded-2xl"
+            className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-accent-purple hover:prose-a:text-accent-blue prose-img:rounded-2xl clean-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 

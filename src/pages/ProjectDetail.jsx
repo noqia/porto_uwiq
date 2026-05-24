@@ -128,7 +128,8 @@ export const ProjectDetail = () => {
               <div>
                 <h2 className="text-2xl font-bold mb-4">Overview</h2>
                 <div 
-                  className="prose prose-slate dark:prose-invert max-w-none text-lg"
+                  /* --- TAMBAHKAN 'clean-content' DI BARIS INI --- */
+                  className="prose prose-slate dark:prose-invert max-w-none text-lg clean-content"
                   dangerouslySetInnerHTML={{ __html: project.description }}
                 />
               </div>

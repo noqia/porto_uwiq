@@ -114,7 +114,7 @@ const achievements = [
 const socialLinks = [
   { icon: Twitter, label: 'Twitter', url: 'https://x.com/FaqihAtthoriq', color: 'hover:text-sky-400', Target: '_blank' },
   { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/faqihatthoriq/', color: 'hover:text-pink-500', Target: '_blank' },
-  { icon: Linkedin, label: 'LinkedIn', url: '#', color: 'hover:text-blue-600', Target: '_blank' },
+  { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/faqihatthoriq/', color: 'hover:text-blue-600', Target: '_blank' },
   { icon: MediumIcon, label: 'Medium', url: 'https://medium.com/@faqihatthoriq', color: 'hover:text-slate-800 dark:hover:text-white', Target: '_blank' },
 ]
 
