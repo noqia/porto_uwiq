@@ -46,7 +46,7 @@ export const AppRoutes = () => {
         <Route path="/work" element={<Work />} />
         <Route path="/work/:id" element={<ProjectDetail />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/gallery" element={<Gallery />} />
       </Route>
 

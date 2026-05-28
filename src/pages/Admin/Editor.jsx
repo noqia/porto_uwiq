@@ -99,9 +99,19 @@ export const Editor = () => {
         return
       }
 
+      const generateSlug = (text) => {
+        return text.toString().toLowerCase()
+          .replace(/\s+/g, '-')           // Ganti spasi dengan -
+          .replace(/[^\w\-]+/g, '')       // Hapus karakter non-word
+          .replace(/\-\-+/g, '-')         // Ganti multiple - dengan single -
+          .replace(/^-+/, '')             // Trim - dari awal
+          .replace(/-+$/, '');            // Trim - dari akhir
+      }
+
       const thumbnailUrl = await uploadThumbnail()
       const payload = {
         title: form.title.trim(),
+        slug: generateSlug(form.title.trim()),
         excerpt: form.excerpt.trim(),
         content: form.content,
         category: form.category,

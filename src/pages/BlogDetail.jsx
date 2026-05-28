@@ -6,7 +6,7 @@ import { supabase } from '../services/supabaseClient'
 import profileImage from '../assets/profile.jpg'
 
 export const BlogDetail = () => {
-  const { id } = useParams()
+  const { slug } = useParams()
   const [post, setPost] = useState(null)
   const [related, setRelated] = useState([])
   const [loading, setLoading] = useState(true)
@@ -16,7 +16,7 @@ export const BlogDetail = () => {
 
   useEffect(() => {
     fetchPost()
-  }, [id])
+  }, [slug])
 
   const fetchPost = async () => {
     try {
@@ -26,7 +26,7 @@ export const BlogDetail = () => {
       const { data, error } = await supabase
         .from('blogs')
         .select('*')
-        .eq('id', id)
+        .eq('slug', slug)
         .single()
 
       if (error) throw error
@@ -40,7 +40,7 @@ export const BlogDetail = () => {
       await supabase
         .from('blogs')
         .update({ views: updatedViews })
-        .eq('id', id)
+        .eq('id', data.id)
 
       // Simpan ke state komponen (gunakan updatedViews agar angka terbaru langsung muncul)
       setPost({ ...data, views: updatedViews })
@@ -48,9 +48,9 @@ export const BlogDetail = () => {
       // 3. Ambil data artikel terkait
       const { data: relatedData } = await supabase
         .from('blogs')
-        .select('id, title, thumbnail, category')
+        .select('id, slug, title, thumbnail, category')
         .eq('category', data.category)
-        .neq('id', id)
+        .neq('id', data.id)
         .limit(3)
 
       setRelated(relatedData || [])
@@ -146,7 +146,7 @@ export const BlogDetail = () => {
             <h3 className="text-2xl font-bold mb-8">Related Stories</h3>
             <div className="grid md:grid-cols-3 gap-6">
               {related.map((item) => (
-                <Link key={item.id} to={`/blog/${item.id}`} className="group">
+                <Link key={item.id} to={`/blog/${item.slug}`} className="group">
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
                     <img src={item.thumbnail || 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=80'} alt={item.title} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
                   </div>

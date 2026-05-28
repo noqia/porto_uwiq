@@ -270,7 +270,7 @@ export const Home = () => {
                         {blog.category}
                       </div>
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 hover:text-accent-purple transition-colors">
-                        <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+                        <Link to={`/blog/${blog.slug}`}>{blog.title}</Link>
                       </h3>
                       <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 line-clamp-3">
                         {blog.excerpt}
@@ -280,7 +280,7 @@ export const Home = () => {
                         <span className="flex items-center gap-1"><Clock size={14} /> {blog.read_time || '5 min read'}</span>
                       </div>
                       <Link 
-                        to={`/blog/${blog.id}`}
+                        to={`/blog/${blog.slug}`}
                         className="inline-flex items-center gap-2 mt-6 text-accent-purple font-medium hover:gap-3 transition-all"
                       >
                         Read Article <ArrowRight size={18} />

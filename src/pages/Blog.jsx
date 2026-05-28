@@ -93,7 +93,7 @@ export const Blog = () => {
             {/* Featured Post */}
             {featured && !searchQuery && activeCategory === 'All' && (
               <SectionReveal>
-                <Link to={`/blog/${featured.id}`} className="block mb-12 group">
+                <Link to={`/blog/${featured.slug}`} className="block mb-12 group">
                   <div className="relative overflow-hidden rounded-3xl aspect-[21/9] mb-6">
                     <img
                       src={featured.thumbnail || 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80'}
@@ -125,7 +125,7 @@ export const Blog = () => {
               ) : (
                 filtered.map((post, index) => (
                   <SectionReveal key={post.id} delay={index * 0.1}>
-                    <Link to={`/blog/${post.id}`} className="flex flex-col md:flex-row gap-6 group">
+                    <Link to={`/blog/${post.slug}`} className="flex flex-col md:flex-row gap-6 group">
                       <div className="w-full md:w-64 h-48 rounded-2xl overflow-hidden flex-shrink-0">
                         <img
                           src={post.thumbnail || 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=80'}
@@ -163,7 +163,7 @@ export const Blog = () => {
                   </h3>
                   <div className="space-y-4">
                     {trending.map((post, i) => (
-                      <Link key={post.id} to={`/blog/${post.id}`} className="flex gap-4 group">
+                      <Link key={post.id} to={`/blog/${post.slug}`} className="flex gap-4 group">
                         <span className="text-2xl font-bold text-slate-200 dark:text-slate-800">0{i + 1}</span>
                         <div>
                           <h4 className="font-medium text-sm group-hover:text-accent-purple transition-colors line-clamp-2">{post.title}</h4>
